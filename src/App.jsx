@@ -1,4 +1,5 @@
-import { useState } from 'react' 
+import { useEffect, useState } from 'react' 
+import axios from "axios"
 
 function Header() {
   return (
@@ -56,30 +57,25 @@ function PostsIndex(props) {
 }
 
 function Content() {
-  const [posts, setPosts] = useState([
-    {
-      id: 1,
-      title: "A Blog Post About...",
-      body: "This is a blog post about something, I am not sure what.",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5F4GSuHQy0X-j9RJpVZfSRuhyTAgrDexOcg&usqp=CAU",
-    },
-    {
-      id: 2,
-      title: "This is a second blog post",
-      body: "Wow, so cool",
-      image: "https://static3.depositphotos.com/1002881/157/i/950/depositphotos_1579477-stock-photo-cool.jpg",
-    },
-    {
-      id: 3,
-      title: "I love mac & cheese",
-      body: "It is so good!",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRm_5twf-9HQfBooD4V1sI1RfCmsu_v1ry7g&usqp=CAU",
-    },
-  ]);
+  const [posts, setPosts] = useState([]);
+
+  const handleIndexPosts = () => {
+    axios.get("http://localhost:3000/posts.json").then(response => {
+      console.log(response.data);
+      setPosts(response.data);
+    });
+  }
+
+  useEffect(handleIndexPosts, [])
 
   return (
     <div>
       <PostsNew />
+      <br />
+      <br />
+      <br />
+      <br />
+      <button onClick={handleIndexPosts}>Get data</button>
       <PostsIndex posts={posts} />
     </div>
   );
