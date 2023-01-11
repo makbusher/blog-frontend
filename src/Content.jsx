@@ -38,6 +38,8 @@ export function Content() {
       <PostsIndex posts={posts} onSelectPost={handleShowPost}/>
       <Modal show={isPostsShowVisible} onClose={handleHidePost}>
         <p>{currentPost.body}</p>
+        <p>Created: {currentPost.created_at}</p>
+        <p>Edited: {currentPost.updated_at}</p>
       </Modal>
     </div>
   );
