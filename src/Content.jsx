@@ -29,10 +29,8 @@ export function Content() {
   useEffect(handleIndexPosts, []);
 
   return (
-    <div>
+    <div className="container">
       <PostsNew />
-      <br />
-      <br />
       <br />
       <br />
       {/* <button onClick={handleIndexPosts}>Get data</button> */}
