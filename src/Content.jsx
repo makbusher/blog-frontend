@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from "axios";
 import { PostsNew } from './PostsNew';
 import { PostsIndex } from './PostsIndex';
+import { PostsShow } from './PostsShow';
 import { Modal } from "./Modal";
 
 export function Content() {
@@ -37,10 +38,9 @@ export function Content() {
       {/* <button onClick={handleIndexPosts}>Get data</button> */}
       <PostsIndex posts={posts} onSelectPost={handleShowPost}/>
       <Modal show={isPostsShowVisible} onClose={handleHidePost}>
-        <p>{currentPost.body}</p>
-        <p>Created: {currentPost.created_at}</p>
-        <p>Edited: {currentPost.updated_at}</p>
+        <PostsShow post={currentPost}/>
       </Modal>
     </div>
   );
 }
+
