@@ -30,6 +30,14 @@ export function Content() {
     setIsPostsShowVisible(false);
   };
 
+  const handleCreatePost = (params, successCallback) => {
+    console.log("handleCreatePost", params);
+    axios.post("http://localhost:3000/posts.json", params).then((response) => {
+      setPosts([...posts, response.data]);
+      successCallback();
+    });
+  };
+
   useEffect(handleIndexPosts, []);
 
   return (
@@ -40,7 +48,7 @@ export function Content() {
       <LogoutLink />
       <br />
       <hr />
-      <PostsNew />
+      <PostsNew onCreatePost={handleCreatePost}/>
       <br />
       <hr />
       <Signup />
