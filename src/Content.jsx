@@ -38,6 +38,24 @@ export function Content() {
     });
   };
 
+  const handleUpdatePost = (params, postId) => {
+    console.log(postId);
+    
+    axios.patch(`http://localhost:3000/posts/${postId}.json`, params).then(response => {
+      console.log(response.data);
+      setPosts(posts.map(post => {
+        if (post.id === response.data.id) {
+          return response.data
+        } else {
+          return post
+        }
+      }))
+      handleHidePost();
+      // window.location.href = '/';
+    })
+    console.log('updating post...');
+  }
+
   useEffect(handleIndexPosts, []);
 
   return (
@@ -57,7 +75,7 @@ export function Content() {
       {/* <button onClick={handleIndexPosts}>Get data</button> */}
       <PostsIndex posts={posts} onSelectPost={handleShowPost}/>
       <Modal show={isPostsShowVisible} onClose={handleHidePost}>
-        <PostsShow post={currentPost}/>
+        <PostsShow onUpdatePost={handleUpdatePost} post={currentPost}/>
       </Modal>
     </div>
   );
