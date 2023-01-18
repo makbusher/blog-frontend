@@ -11,10 +11,10 @@ export function Header() {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
             <a className="nav-link active" aria-current="page" href="/">Home</a>
-            <a className="nav-link active" href="/about">About</a>
-            <a className="nav-link" href="#posts-index">All Posts</a>
-            <a className="nav-link" href="#posts-new">New Post</a>
-            <a className="nav-link disabled">Disabled</a>
+            <Link className="nav-link active" to="/about">About</Link>
+            <Link className="nav-link" to="/posts/new">New Post</Link>
+            <Link className="nav-link" to="/signup">Signup</Link>
+            <Link className="nav-link" to="/login">Login</Link>
           </div>
         </div>
       </div>
