@@ -45,16 +45,16 @@ export function Content() {
       console.log(response.data);
       setPosts(posts.map(post => {
         if (post.id === response.data.id) {
-          return response.data
+          return response.data;
         } else {
-          return post
+          return post;
         }
-      }))
+      }));
       handleHidePost();
       // window.location.href = '/';
-    })
+    });
     console.log('updating post...');
-  }
+  };
 
   useEffect(handleIndexPosts, []);
 

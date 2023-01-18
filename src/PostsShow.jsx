@@ -1,10 +1,10 @@
 export function PostsShow(props) {
   const handleSubmit = (event) => {
-    event.preventDefault()
-    const params = new FormData(event.target)
-    console.log(props.post)
-    props.onUpdatePost(params, props.post.id)
-  }
+    event.preventDefault();
+    const params = new FormData(event.target);
+    console.log(props.post);
+    props.onUpdatePost(params, props.post.id);
+  };
   return (
     <div>
       <p>{props.post.body}</p>
