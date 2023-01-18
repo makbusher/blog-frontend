@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export function Header() {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -8,7 +10,8 @@ export function Header() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-            <a className="nav-link active" aria-current="page" href="#">Home</a>
+            <a className="nav-link active" aria-current="page" href="/">Home</a>
+            <a className="nav-link active" href="/about">About</a>
             <a className="nav-link" href="#posts-index">All Posts</a>
             <a className="nav-link" href="#posts-new">New Post</a>
             <a className="nav-link disabled">Disabled</a>
