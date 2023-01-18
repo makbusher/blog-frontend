@@ -9,11 +9,13 @@ import { Login } from "./Login";
 import { LogoutLink } from "./LogoutLink";
 import { Routes, Route } from "react-router-dom";
 import { About } from "./About";
+import { PostsShowPage } from './PostsShowPage';
 
 
 export function Content() {
   const [posts, setPosts] = useState([]);
   const [isPostsShowVisible, setIsPostsShowVisible] = useState(false);
+  const [isPostsNewVisible, setIsPostsNewVisible] = useState(false);
   const [currentPost, setCurrentPost] = useState([]);
 
   const handleIndexPosts = () => {
@@ -69,6 +71,7 @@ export function Content() {
         <Route path="/login" element={ <Login />} />
         <Route path="/" element={ <PostsIndex posts={posts} onSelectPost={handleShowPost}/>} />
         <Route path="/posts" element={ <PostsIndex posts={posts} onSelectPost={handleShowPost}/>} />
+        <Route path="/posts/:id" element={<PostsShowPage />} />
       </Routes>
 
       

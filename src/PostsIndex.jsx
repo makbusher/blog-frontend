@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom';
+
 export function PostsIndex(props) {
   console.log(props);
 
@@ -16,6 +18,7 @@ export function PostsIndex(props) {
                 <div className="card-body">
                   <h5 className="card-title">{post.title}</h5>
                   <button type="button" className="btn btn-dark" onClick={() => props.onSelectPost(post)}>Show Post</button>
+                  <Link to={`/posts/${post.id}`}>More Info</Link>
                   <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
                 </div>
               </div>
