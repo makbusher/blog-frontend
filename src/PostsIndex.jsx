@@ -1,13 +1,16 @@
 import {Link} from 'react-router-dom';
+import { useState } from 'react';
 
 export function PostsIndex(props) {
   console.log(props);
 
+  const [searchFilter, setSearchFilter] = useState("");
+
   return (
     <div id="posts-index">
       <h1>All posts</h1>
-
-      {props['posts'].map(post => (
+      Search filter: <input type="text" value={searchFilter} onChange={(event) => setSearchFilter(event.target.value)} />
+      {props.posts.filter((post) => post.title.toLowerCase().includes(searchFilter.toLowerCase())).map(post => (
         <div className="posts" key={post.id}>
           <div className="card mb-3" >
             <div className="row g-0">
